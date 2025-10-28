@@ -18,13 +18,13 @@
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif;
       color:#fff;
       background: linear-gradient(125deg, 
-                  #0f0f12, /* Темна база */
-                  #3a0a1a, /* Темно-червоний */
-                  var(--tiktok-pink), /* Яскраво-червоний */
-                  #1a0a3a, /* Темно-синій */
-                  var(--tiktok-cyan), /* Яскраво-синій */
-                  #0f0f12 /* Темна база */
-                  );
+            #0f0f12, /* Темна база */
+            #3a0a1a, /* Темно-червоний */
+            var(--tiktok-pink), /* Яскраво-червоний */
+            #1a0a3a, /* Темно-синій */
+            var(--tiktok-cyan), /* Яскраво-синій */
+            #0f0f12 /* Темна база */
+            );
       background-size: 400% 400%; /* Збільшуємо розмір для анімації */
       animation: shimmer-bg 20s ease infinite; /* Застосовуємо анімацію */
       overflow:hidden;
@@ -74,10 +74,12 @@
       100%{ transform: translateY(0) scale(1); opacity:1 }
     }
     .claimed{
-      position:absolute; top:3%; left:0; right:0; text-align:center; font-weight:1000;
-      font-size: clamp(22px, 8vw, 36px); letter-spacing:.06em; z-index:7; opacity:0; text-transform:uppercase;
+      position:absolute; top:0%; /* Змінено з 1% на 0%, щоб підняти ще вище */ left:0; right:0; text-align:center; font-weight:1000;
+      font-size: clamp(18px, 6.5vw, 30px); /* Ще зменшено розмір шрифту */
+      letter-spacing:.06em; z-index:7; opacity:0; text-transform:uppercase;
       text-shadow: 0 0 12px rgba(32,242,255,.6), 0 0 20px rgba(255,45,85,.5);
-      white-space:nowrap;
+      /* white-space:nowrap; - видалено, щоб текст міг переноситися */
+      line-height: 1.15; /* Налаштовано висоту рядка для двох рядків */
     }
     .claimed.flicker{ animation: flicker 1200ms steps(2,end) infinite alternate, claimed-in .5s ease forwards }
     @keyframes claimed-in{ from{opacity:0; transform:translateY(-8px)} to{opacity:1; transform:translateY(0)} }
@@ -111,7 +113,7 @@
       </div>
       <div class="gift" id="gift" aria-hidden="true"><img src="https://cdn2.dps.vc/iblock/a79/a79204e0fab55cdc35ca0bdfa019face/8f06121e1c15be8566b3fc02982a2027.png" alt="TikTok Gift"/></div>
       <!-- Змінено текст -->
-      <div class="claimed" id="claimed">YOU UNLOCKED TIKTOK GIFT!</div>
+      <div class="claimed" id="claimed">YOU UNLOCKED<br>TIKTOK GIFT!</div>
     </div>
     <button id="actionBtn" class="btn" aria-live="polite">Start 00:10</button>
   </div>
@@ -207,4 +209,6 @@
   </script>
 </body>
 </html>
+
+
 
